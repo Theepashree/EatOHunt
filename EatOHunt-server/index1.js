@@ -16,7 +16,11 @@ app.use(express.json());
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  tls: true, // Ensure that TLS is enabled
+  tlsAllowInvalidCertificates: false, 
 });
+
+
 
 async function connectToMongoDB() {
   try {
