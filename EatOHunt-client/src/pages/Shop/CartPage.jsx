@@ -17,7 +17,7 @@ const CartPage = () => {
   //handledIncrease function
   const handleIncrease = (item) => {
     // console.log(item._id);
-    fetch(`http://localhost:5000/carts/${item._id}`,{
+    fetch(`https://eatohunt.onrender.com/carts/${item._id}`,{
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -47,7 +47,7 @@ const CartPage = () => {
   const handleDecrease = (item) => {
     // console.log(item._id);
     if(item.quantity > 1){
-      fetch(`http://localhost:5000/carts/${item._id}`,{
+      fetch(`https://eatohunt.onrender.com/carts/${item._id}`,{
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -104,7 +104,7 @@ const CartPage = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${item._id}`, {
+        fetch(`https://eatohunt.onrender.com/carts/${item._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

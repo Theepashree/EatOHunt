@@ -18,7 +18,7 @@ const Cards = ({ item }) => {
     if(user && user?.email){
       const cartItem = {menuItemId: _id,name, quantity:1, image, price, email:user.email};
       console.log(cartItem);
-      fetch("http://localhost:5000/carts",{
+      fetch("https://eatohunt.onrender.com/carts",{
         method : "POST",
         headers: {
           'content-type' : "application/json"
