@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-const { MongoClient, ObjectId } = require("mongodb");
+const { MongoClient, ObjectId, ServerApiVersion } = require("mongodb");
 const mongoose = require('mongoose');
 
 const port = process.env.PORT || 5000;
@@ -14,12 +14,12 @@ app.use(cors());
 app.use(express.json());
 
 const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  tls: true, // Ensure that TLS is enabled
-  tlsAllowInvalidCertificates: false, 
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
 });
-
 
 
 async function connectToMongoDB() {
